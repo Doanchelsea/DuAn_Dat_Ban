@@ -69,6 +69,15 @@ public class ChitietActivity extends AppCompatActivity {
         ActionToolbar();
         SKText();
         CheckLove();
+        btnDatBan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChitietActivity.this,DatBanActivity.class);
+                intent.putExtra("IDNH",""+iD);
+                intent.putExtra("IMGNH",imgnhahang);
+                startActivity(intent);
+            }
+        });
 
     }
     private void XoaYT(){

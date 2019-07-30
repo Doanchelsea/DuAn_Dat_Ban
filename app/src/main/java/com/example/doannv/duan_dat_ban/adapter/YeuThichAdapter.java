@@ -12,24 +12,24 @@ import android.widget.TextView;
 
 import com.example.doannv.duan_dat_ban.R;
 import com.example.doannv.duan_dat_ban.model.MyItemOnClick;
+import com.example.doannv.duan_dat_ban.model.MyItemOnClickYeuThich;
 import com.example.doannv.duan_dat_ban.model.NhaHang;
+import com.example.doannv.duan_dat_ban.model.YeuThich;
 import com.example.doannv.duan_dat_ban.unti.Server;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import static com.example.doannv.duan_dat_ban.R.drawable.ic_sao;
+public class YeuThichAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private  ArrayList<YeuThich> arrayList;
+    private Context context;
+    private MyItemOnClickYeuThich myItemOnClick;
 
-public class NhaHangAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private  ArrayList<NhaHang> arrayList;
-    private  Context context;
-    private MyItemOnClick myItemOnClick;
-
-    public void setMyItemOnClick(MyItemOnClick myItemOnClick) {
+    public void setMyItemOnClick(MyItemOnClickYeuThich myItemOnClick) {
         this.myItemOnClick = myItemOnClick;
     }
 
-    public NhaHangAdapter(ArrayList<NhaHang> arrayList, Context context) {
+    public YeuThichAdapter(ArrayList<YeuThich> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -38,13 +38,13 @@ public class NhaHangAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.item_layout1,viewGroup,false);
+        View view = inflater.inflate(R.layout.item_layout2,viewGroup,false);
         return new ViewHodel(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int i) {
-        NhaHang nhaHang = arrayList.get(i);
+        YeuThich nhaHang = arrayList.get(i);
         ViewHodel itemHolder = (ViewHodel) viewHolder;
 
         Picasso.get().load(Server.duongdananh + nhaHang.getImgnhahang())
@@ -58,6 +58,11 @@ public class NhaHangAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         itemHolder.tvItemDiaChi.setMaxLines(1);
         itemHolder.tvItemDiaChi.setEllipsize(TextUtils.TruncateAt.END);
         itemHolder.tvItemDiaChi.setText(nhaHang.getDiachi());
+
+        itemHolder.tvMonan.setMaxLines(1);
+        itemHolder.tvMonan.setEllipsize(TextUtils.TruncateAt.END);
+        itemHolder.tvMonan.setText(nhaHang.getMonan());
+
         if (nhaHang.getDanhgia() == 1){
             itemHolder.saoden1.setImageResource(R.drawable.ic_sao);
             itemHolder.saoden2.setImageResource(R.drawable.ic_sao_den);
@@ -100,24 +105,26 @@ public class NhaHangAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return arrayList.size();
     }
     public class ViewHodel extends RecyclerView.ViewHolder{
         private ImageView imgItem1;
-        private TextView tvItem1,tvItemDiaChi;
+        private TextView tvItem1,tvItemDiaChi,tvMonan;
         private ImageView saoden1,saoden2,saoden3,saoden4,saoden5;
         public ViewHodel(@NonNull View itemView) {
             super(itemView);
-            imgItem1 = itemView.findViewById(R.id.imgItem1);
-            tvItem1 = itemView.findViewById(R.id.tvItem1);
-            tvItemDiaChi = itemView.findViewById(R.id.tvItemDiaChi);
-            saoden1 = itemView.findViewById(R.id.imgsaoden1);
-            saoden2 = itemView.findViewById(R.id.imgsaoden2);
-            saoden3 = itemView.findViewById(R.id.imgsaoden3);
-            saoden4 = itemView.findViewById(R.id.imgsaoden4);
-            saoden5 = itemView.findViewById(R.id.imgsaoden5);
+            imgItem1 = itemView.findViewById(R.id.imgItem2);
+            tvItem1 = itemView.findViewById(R.id.tvItem2);
+            tvItemDiaChi = itemView.findViewById(R.id.tvItemDiaChi2);
+            saoden1 = itemView.findViewById(R.id.imgsaoden1a);
+            saoden2 = itemView.findViewById(R.id.imgsaoden2a);
+            saoden3 = itemView.findViewById(R.id.imgsaoden3a);
+            saoden4 = itemView.findViewById(R.id.imgsaoden4a);
+            saoden5 = itemView.findViewById(R.id.imgsaoden5a);
+            tvMonan = itemView.findViewById(R.id.tvMonan);
         }
     }
 }

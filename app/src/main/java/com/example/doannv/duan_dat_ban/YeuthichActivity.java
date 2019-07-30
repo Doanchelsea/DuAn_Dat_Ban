@@ -1,13 +1,11 @@
 package com.example.doannv.duan_dat_ban;
 
 import android.content.Intent;
-import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import com.android.volley.AuthFailureError;
@@ -17,9 +15,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.doannv.duan_dat_ban.adapter.GiaReAdapter;
-import com.example.doannv.duan_dat_ban.model.MyItemOnClick;
-import com.example.doannv.duan_dat_ban.model.NhaHang;
+import com.example.doannv.duan_dat_ban.adapter.YeuThichAdapter;
+import com.example.doannv.duan_dat_ban.model.MyItemOnClickYeuThich;
+import com.example.doannv.duan_dat_ban.model.YeuThich;
 import com.example.doannv.duan_dat_ban.unti.Server;
 
 import org.json.JSONArray;
@@ -34,9 +32,9 @@ public class YeuthichActivity extends AppCompatActivity {
     String IDTK;
     private Toolbar toolbarYeuThich;
     private RecyclerView recyYeuThich;
-    ArrayList<NhaHang> arrayList;
+    ArrayList<YeuThich> arrayList;
     LinearLayoutManager manager;
-    GiaReAdapter giaReAdapter;
+    YeuThichAdapter giaReAdapter;
 
 
     @Override
@@ -50,11 +48,11 @@ public class YeuthichActivity extends AppCompatActivity {
     }
 
     private void EventOnClik() {
-        giaReAdapter.setMyItemOnClick(new MyItemOnClick() {
+        giaReAdapter.setMyItemOnClick(new MyItemOnClickYeuThich() {
             @Override
-            public void onClick(NhaHang nhaHang) {
+            public void onClick(YeuThich nhaHang) {
                 Intent intent = new Intent(YeuthichActivity.this,ChitietActivity.class);
-                intent.putExtra("ID",""+nhaHang.getId());
+                intent.putExtra("ID",""+nhaHang.getIdstatus());
                 intent.putExtra("TENNH",nhaHang.getTennhahang());
                 intent.putExtra("DIACHINH",nhaHang.getDiachi());
                 intent.putExtra("MONANNH",nhaHang.getMonan());
@@ -80,6 +78,8 @@ public class YeuthichActivity extends AppCompatActivity {
                 String mota;
                 String diachi;
                 String monan;
+                int idtk;
+                int idstatus;
                 if (response != null ) {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
@@ -93,7 +93,9 @@ public class YeuthichActivity extends AppCompatActivity {
                             danhGia = jsonObject.getInt("danhgia");
                             imgnhahang = jsonObject.getString("imgnhahang");
                             mota = jsonObject.getString("mota");
-                            arrayList.add(new NhaHang(iD,tennhahang,diachi,monan,tien,danhGia,imgnhahang,mota));
+                            idtk = jsonObject.getInt("idtk");
+                            idstatus = jsonObject.getInt("idstatus");
+                            arrayList.add(new YeuThich(iD,tennhahang,diachi,monan,tien,danhGia,imgnhahang,mota,idtk,idstatus));
                             giaReAdapter.notifyDataSetChanged();
                         }
                     } catch (JSONException e) {
@@ -123,7 +125,7 @@ public class YeuthichActivity extends AppCompatActivity {
         recyYeuThich = (RecyclerView) findViewById(R.id.recyYeuThich);
         arrayList = new ArrayList<>();
         manager = new LinearLayoutManager(YeuthichActivity.this,LinearLayoutManager.VERTICAL,false);
-        giaReAdapter = new GiaReAdapter(arrayList, YeuthichActivity.this);
+        giaReAdapter = new YeuThichAdapter(arrayList, YeuthichActivity.this);
         recyYeuThich.setHasFixedSize(true);
         recyYeuThich.setLayoutManager(manager);
         recyYeuThich.setAdapter(giaReAdapter);

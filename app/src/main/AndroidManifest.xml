@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LichSuActivity"></activity>
         <activity
             android:name=".ManHinhChoActivity"
             android:label="@string/app_name"
@@ -26,7 +27,8 @@
         <activity android:name=".QuangCaoActivity" />
         <activity android:name=".NhaHang2Activity" />
         <activity android:name=".ChitietActivity" />
-        <activity android:name=".YeuthichActivity"></activity>
+        <activity android:name=".YeuthichActivity" />
+        <activity android:name=".DatBanActivity" />
     </application>
 
 </manifest>

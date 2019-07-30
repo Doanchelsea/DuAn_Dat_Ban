@@ -19,8 +19,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class GiaReAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    ArrayList<NhaHang> arrayList;
-    Context context;
+    private  ArrayList<NhaHang> arrayList;
+    private  Context context;
     private MyItemOnClick myItemOnClick;
 
     public void setMyItemOnClick(MyItemOnClick myItemOnClick) {

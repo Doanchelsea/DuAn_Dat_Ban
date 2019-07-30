@@ -376,6 +376,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View view = navigationView.inflateHeaderView(R.layout.nav_header_main);
+
         tvName = view.findViewById(R.id.tvName);
         imgName = view.findViewById(R.id.imgName);
         tvName.setText(hoten);
@@ -465,7 +466,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.lichsu:
-                Toast.makeText(this, "Lịch sử", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(MainActivity.this,LichSuActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.trogiup:
                 Toast.makeText(this, "Trợ giúp", Toast.LENGTH_SHORT).show();
