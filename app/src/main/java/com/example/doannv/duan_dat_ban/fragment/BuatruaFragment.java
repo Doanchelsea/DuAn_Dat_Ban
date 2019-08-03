@@ -92,7 +92,6 @@ public class BuatruaFragment extends Fragment {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     trangThai = jsonObject.getInt("trangthai");
                                     if (trangThai == 1){
-
                                         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
                                         StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.duongdandatban, new Response.Listener<String>() {
                                             @Override
@@ -212,9 +211,9 @@ public class BuatruaFragment extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.duongdanpostlichsu, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                menu_progressbarBtrua.setVisibility(View.GONE);
                 Intent intent = new Intent(getContext(), LichSuActivity.class);
                 startActivity(intent);
+                menu_progressbarBtrua.setVisibility(View.GONE);
             }
         }, new Response.ErrorListener() {
             @Override

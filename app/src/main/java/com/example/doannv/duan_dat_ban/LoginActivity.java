@@ -66,16 +66,23 @@ public class LoginActivity extends AppCompatActivity {
                                     hoten = jsonObject.getString("hoten");
                                     image = jsonObject.getString("image");
                                     if (taikhoan.equals(username) && matkhau.equals(password)){
-                                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                                        intent.putExtra("ID",""+id);
-                                        intent.putExtra("HOTEN",hoten);
-                                        intent.putExtra("EMAIL",email);
-                                        intent.putExtra("TAIKHOAN",username);
-                                        intent.putExtra("MATKHAU",password);
-                                        intent.putExtra("IMAGE",image);
-                                        startActivity(intent);
-                                        menu_progressbar.setVisibility(View.GONE);
-                                        return;
+                                        if (taikhoan.equals("admin") && matkhau.equals("admin")){
+                                            Intent intent = new Intent(LoginActivity.this,QuanLyNHActivity.class);
+                                            startActivity(intent);
+                                            menu_progressbar.setVisibility(View.GONE);
+                                            return;
+                                        }else {
+                                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                            intent.putExtra("ID",""+id);
+                                            intent.putExtra("HOTEN",hoten);
+                                            intent.putExtra("EMAIL",email);
+                                            intent.putExtra("TAIKHOAN",username);
+                                            intent.putExtra("MATKHAU",password);
+                                            intent.putExtra("IMAGE",image);
+                                            startActivity(intent);
+                                            menu_progressbar.setVisibility(View.GONE);
+                                            return;
+                                        }
                                     }
 
                                 } catch (JSONException e) {
