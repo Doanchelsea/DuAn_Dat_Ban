@@ -17,7 +17,7 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.AppBarOverlay">
                 <android.support.v7.widget.Toolbar
-                    app:title="Thêm nhà hàng"
+                    app:title="Sửa nhà hàng"
                     android:id="@+id/toolbarSuaNH"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
@@ -60,6 +60,7 @@
                     android:layout_height="50dp"
                     android:paddingRight="20dp" />
             </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tiSuaDiaChi"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

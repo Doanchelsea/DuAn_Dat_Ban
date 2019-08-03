@@ -106,7 +106,7 @@ public class LichSuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
          }
          if (lichSu.getTrangThai() == 3){
              itemHolder.tvTrangThaiLS.setTextColor(0xFFFF0000);
-             itemHolder.tvTrangThaiLS.setText("Hủy đặt bàn");
+             itemHolder.tvTrangThaiLS.setText("Đã hủy");
              itemHolder.tvTrangThaiLS.setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View v) {

@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".SuaBanAnActivity"></activity>
+        <activity android:name=".ThemBanActivity" />
+        <activity android:name=".QuanLyLichsuActivity" />
+        <activity android:name=".Main2Activity" />
         <activity android:name=".SuaNHActivity" />
         <activity android:name=".ThemNHActivity" />
         <activity android:name=".ChitietQLNHActivity" />

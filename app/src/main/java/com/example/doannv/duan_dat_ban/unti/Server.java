@@ -24,4 +24,7 @@ public class Server {
     public static String duongdanthemNH= "http://"+localhost+"/datban/themnhahang.php";
     public static String duongdanxoaNH= "http://"+localhost+"/datban/xoanhahang.php";
     public static String duongdansuaNH= "http://"+localhost+"/datban/suanhahang.php";
+    public static String duongdanquanLyLS= "http://"+localhost+"/datban/quanlylichsu.php";
+    public static String duongdanthemban= "http://"+localhost+"/datban/thembanan.php";
+    public static String duongdanxoaban= "http://"+localhost+"/datban/xoabanan.php";
 }

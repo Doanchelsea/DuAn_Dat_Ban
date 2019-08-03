@@ -168,6 +168,7 @@ public class ChitietQLNHActivity extends AppCompatActivity {
             case R.id.itemBanAn:
                 Intent intent1 = new Intent(ChitietQLNHActivity.this,Main2Activity.class);
                 intent1.putExtra("IDNH",""+iD);
+                intent1.putExtra("NAMENH",""+tennhahang);
                 intent1.putExtra("IMGNH",imgnhahang);
                 startActivity(intent1);
                 break;
