@@ -25,10 +25,12 @@ import com.android.volley.toolbox.Volley;
 import com.example.doannv.duan_dat_ban.LichSuActivity;
 import com.example.doannv.duan_dat_ban.MainActivity;
 import com.example.doannv.duan_dat_ban.R;
+import com.example.doannv.duan_dat_ban.SuaBanAnActivity;
 import com.example.doannv.duan_dat_ban.adapter.BuaAnAdapter;
 import com.example.doannv.duan_dat_ban.adapter.QLBuaAnAdapter;
 import com.example.doannv.duan_dat_ban.model.BanAn;
 import com.example.doannv.duan_dat_ban.model.MyItemDatBan;
+import com.example.doannv.duan_dat_ban.model.MySuaBan;
 import com.example.doannv.duan_dat_ban.model.MyXoaBA;
 import com.example.doannv.duan_dat_ban.unti.Server;
 
@@ -76,8 +78,7 @@ public class QLBuaToiFragemnt extends Fragment {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.duongdanxoaban, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        arrayList.clear();
-                        GetData();
+                        XoaLSTheoIDNH(banAn.getiD());
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -96,6 +97,20 @@ public class QLBuaToiFragemnt extends Fragment {
             }
         });
         GetData();
+        giaReAdapter.setMySuaBan(new MySuaBan() {
+            @Override
+            public void Onclick(BanAn banAn) {
+                Intent intent = new Intent(getActivity(), SuaBanAnActivity.class);
+                intent.putExtra("IDBA",""+banAn.getiD());
+                intent.putExtra("IMGBA",banAn.getImgBuaAn());
+                intent.putExtra("NAMENH",banAn.getNameNH());
+                intent.putExtra("SONGUOI",""+banAn.getSoNguoi());
+                intent.putExtra("SOBAN",""+banAn.getSoBan());
+                intent.putExtra("BUAAN",""+banAn.getBuaAn());
+                intent.putExtra("IDNH",""+banAn.getiDNhaHang());
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -144,6 +159,29 @@ public class QLBuaToiFragemnt extends Fragment {
                 HashMap<String,String> hashMap = new HashMap<>();
                 hashMap.put("idbuaan",""+idBuaAn);
                 hashMap.put("idnhahang",""+IDNH);
+                return hashMap;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+    private void XoaLSTheoIDNH(final int ID){
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.duongdanxoalSN, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                arrayList.clear();
+                GetData();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String,String> hashMap = new HashMap<>();
+                hashMap.put("idbanan",""+ID);
                 return hashMap;
             }
         };

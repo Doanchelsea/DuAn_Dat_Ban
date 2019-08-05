@@ -79,8 +79,8 @@ public class QLBuatruaFragment extends Fragment {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.duongdanxoaban, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        arrayList.clear();
-                        GetData();
+                        XoaLSTheoIDNH(banAn.getiD());
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -103,7 +103,13 @@ public class QLBuatruaFragment extends Fragment {
             @Override
             public void Onclick(BanAn banAn) {
                 Intent intent = new Intent(getActivity(), SuaBanAnActivity.class);
-
+                intent.putExtra("IDBA",""+banAn.getiD());
+                intent.putExtra("IMGBA",banAn.getImgBuaAn());
+                intent.putExtra("NAMENH",banAn.getNameNH());
+                intent.putExtra("SONGUOI",""+banAn.getSoNguoi());
+                intent.putExtra("SOBAN",""+banAn.getSoBan());
+                intent.putExtra("BUAAN",""+banAn.getBuaAn());
+                intent.putExtra("IDNH",""+banAn.getiDNhaHang());
                 startActivity(intent);
             }
         });
@@ -155,6 +161,29 @@ public class QLBuatruaFragment extends Fragment {
                 HashMap<String,String> hashMap = new HashMap<>();
                 hashMap.put("idbuaan",""+idBuaAn);
                 hashMap.put("idnhahang",""+IDNH);
+                return hashMap;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+    private void XoaLSTheoIDNH(final int ID){
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.duongdanxoalSN, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                arrayList.clear();
+                GetData();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String,String> hashMap = new HashMap<>();
+                hashMap.put("idbanan",""+ID);
                 return hashMap;
             }
         };

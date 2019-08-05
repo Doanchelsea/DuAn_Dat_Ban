@@ -95,26 +95,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
         </RadioGroup>
-        <RadioGroup
-            android:layout_margin="@dimen/padding_10"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:checked="true"
-                android:layout_weight="1"
-                android:id="@+id/radiaControng"
-                android:text="Còn trống"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:layout_weight="1"
-                android:id="@+id/radiaDaDat"
-                android:text="Đã đặt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" />
-        </RadioGroup>
         <Button
             android:id="@+id/btnSuaBan"
             android:layout_margin="@dimen/padding_10"

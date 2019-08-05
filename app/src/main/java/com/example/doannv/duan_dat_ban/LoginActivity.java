@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                                     password = jsonObject.getString("matkhau");
                                     email = jsonObject.getString("email");
                                     hoten = jsonObject.getString("hoten");
-                                    image = jsonObject.getString("image");
+                                    image = jsonObject.getString("imageok");
                                     if (taikhoan.equals(username) && matkhau.equals(password)){
                                         if (taikhoan.equals("admin") && matkhau.equals("admin")){
                                             Intent intent = new Intent(LoginActivity.this,QuanLyNHActivity.class);
@@ -100,6 +100,13 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
                 requestQueue.add(jsonArrayRequest);
+            }
+        });
+        btnDangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,DangKyActivity.class);
+                startActivity(intent);
             }
         });
     }
