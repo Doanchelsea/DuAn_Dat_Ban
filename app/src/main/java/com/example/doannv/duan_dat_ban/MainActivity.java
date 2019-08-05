@@ -470,16 +470,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent1);
                 break;
             case R.id.trogiup:
-                Toast.makeText(this, "Trợ giúp", Toast.LENGTH_SHORT).show();
+                Intent intent4 = new Intent(MainActivity.this,SuaThongtinActivity.class);
+                startActivity(intent4);
                 break;
             case R.id.caidat:
-                Toast.makeText(this, "Cài đặt", Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.doimk:
-                Toast.makeText(this, "Đổi mật khẩu", Toast.LENGTH_SHORT).show();
+                Intent intent3 = new Intent(MainActivity.this,DoiMKActivity.class);
+                startActivity(intent3);
                 break;
             case R.id.dangxuat:
-                Toast.makeText(this, "Đăng xuất", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent2);
                 break;
         }
 

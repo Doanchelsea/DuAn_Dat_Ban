@@ -1,8 +1,8 @@
 package com.example.doannv.duan_dat_ban.unti;
 
 public class Server {
-    public static String localhost = "10.22.205.154";
-//    public static String localhost = "192.168.1.8";
+//    public static String localhost = "10.22.205.154";
+    public static String localhost = "192.168.1.8";
 //    public static String localhost = "172.20.10.12";
     public static String duongdandangnhap = "http://"+localhost+"/datban/dangnhap.php";
     public static String duongdananh = "http://"+localhost+"/datban/";
@@ -31,4 +31,6 @@ public class Server {
     public static String duongdansuabanan =  "http://"+localhost+"/datban/suabanan.php";
     public static String duongdansuaLSnhieu =  "http://"+localhost+"/datban/sualichsunhieu.php";
     public static String duongdandangky =  "http://"+localhost+"/datban/dangky.php";
+    public static String duongdandoimatkhau =  "http://"+localhost+"/datban/doimatkhau.php";
+    public static String duongdananhdaidien =  "http://"+localhost+"/datban/suaimg.php";
 }

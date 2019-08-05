@@ -15,7 +15,7 @@
         <item
             android:id="@+id/trogiup"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Trợ giúp" />
+            android:title="Sửa thông tin" />
         <item
             android:id="@+id/caidat"
             android:icon="@drawable/ic_menu_manage"

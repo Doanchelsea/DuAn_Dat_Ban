@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DangKyActivity"></activity>
+        <activity android:name=".SuaThongtinActivity"></activity>
+        <activity android:name=".DoiMKActivity" />
+        <activity android:name=".DangKyActivity" />
         <activity android:name=".SuaBanAnActivity" />
         <activity android:name=".ThemBanActivity" />
         <activity android:name=".QuanLyLichsuActivity" />
